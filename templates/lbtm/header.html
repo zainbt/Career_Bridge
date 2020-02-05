@@ -1,0 +1,105 @@
+
+{% load static %}
+<head>
+    <script>
+        var RUN_PAGE_HEIGHT_RESET = true;
+        var DOMAIN_URL = '#';
+        var ADMIN_URL = '#';
+    </script>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" /><title>
+	Career Bridge
+</title><link rel="Stylesheet" type="text/css" href="{% static 'style/bootstrap.min.css' %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/OpenSans.css' %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/font-awesome/css/font-awesome.min.css' %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/Style.css' %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/app.css' %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/header.css' %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/footer.css' %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/prettyPhoto.css' %}" />
+
+    <!-- slick slider -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.css" />
+
+    <script lang="javascript" type="text/javascript" src="{% static 'javascript/jquery.min.js' %}"></script>
+
+    <script lang="javascript" type="text/javascript" src="{% static 'javascript/bootstrap.min.js' %}"></script>
+
+
+
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/content.css' %}"/>
+    <meta id="ctl00_cphHeader_metaKeywords" name="keywords" content=""></meta>
+    <meta id="ctl00_cphHeader_metaDescription" name="Description" content=""></meta>
+
+    <script>
+        $(document).ready(function () {
+            if (window.createAsAQuestion) {
+
+               // createAsAQuestion(15270);
+            }
+            var html = "";
+
+            if (DOMAIN_URL == '#') {
+            $("a").each(function () {
+                var value = $(this).attr("href");
+                if (value) {
+                    value = value.replace('http://www.umt.edu.pk/', '#');
+                        value = value.replace("http://localhost:7000", "admin.umt.edu.pk");
+                        $(this).attr("href", value);
+                    }
+                });
+                $("img").each(function () {
+                    var value = $(this).attr("src");
+                    if (value) {
+                        value = value.replace("http://localhost:7000", "admin.umt.edu.pk");
+                        $(this).attr("src", value);
+                    }
+                });
+
+            }
+
+            //Replace Hon Http To Https
+            if (window.location.href.indexOf('https://www.umt.edu.pk/')>-1) {
+            //$("a").each(function () {
+            //    var value = $(this).attr("href");
+            //    if (value) {
+            //        $(this).attr("href", value.replace('http://', 'https://'));
+            //    }
+            //});
+            $("script").each(function () {
+                var value = $(this).attr("src");
+                if (value) {
+                    $(this).attr("src", value.replace('http://', 'https://'));
+                }
+            });
+            $("img").each(function () {
+                var value = $(this).attr("src");
+                if (value) {
+                    $(this).attr("src", value.replace('http://', 'https://'));
+                }
+            });
+            $("iframe").each(function () {
+                var value = $(this).attr("src");
+                if (value) {
+                    $(this).attr("src", value.replace('http://', 'https://'));
+                }
+            });
+            }
+
+    });
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-4984482-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <meta name="p:domain_verify" content="c451fe533b61ef8fe1adbbb51c317fe0" />
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>

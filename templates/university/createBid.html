@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+<form method="POST">
+    {% csrf_token %}
+    <label>project Name </label>
+       {{ form.as_p }}
+<input type="submit" value="Create" />
+
+</form>
+
+{% endblock %}
+
+
+

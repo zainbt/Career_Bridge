@@ -1,0 +1,873 @@
+
+<!DOCTYPE html>
+{% load static %}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script>       
+        var RUN_PAGE_HEIGHT_RESET = true;
+        var DOMAIN_URL = 'http://www.umt.edu.pk/';
+        var ADMIN_URL = 'https://admin.umt.edu.pk/';
+    </script>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" /><title>
+	Office of Campus Management and Services (OCMS
+</title><link rel="Stylesheet" type="text/css" href="{% static 'style/bootstrap.min.css' %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/OpenSans.css' %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/font-awesome/css/font-awesome.min.css' %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/Style.css' %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/app.css' %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/header.css' %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/footer.css' %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/prettyPhoto.css' %}" />
+
+    <!-- slick slider -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.css" />
+
+    <script lang="javascript" type="text/javascript" src="{% static 'javascript/jquery.min.js' %}"></script>
+  
+    <script lang="javascript" type="text/javascript" src="{% static 'javascript/bootstrap.min.js' %}"></script>
+
+   
+    
+    <link rel="Stylesheet" type="text/css" href="{% static 'style/content.css' %}"/>
+    <meta id="ctl00_cphHeader_metaKeywords" name="keywords" content=""></meta>
+    <meta id="ctl00_cphHeader_metaDescription" name="Description" content=""></meta>
+
+    <script>
+        $(document).ready(function () {
+            if (window.createAsAQuestion) {
+
+               // createAsAQuestion(15270);
+            }
+            var html = "";
+
+            if (DOMAIN_URL == 'http://www.umt.edu.pk/') {
+            $("a").each(function () {
+                var value = $(this).attr("href");
+                if (value) {
+                    value = value.replace('http://www.umt.edu.pk/', 'http://www.umt.edu.pk/');
+                        value = value.replace("http://localhost:7000", "admin.umt.edu.pk");
+                        $(this).attr("href", value);
+                    }
+                });
+                $("img").each(function () {
+                    var value = $(this).attr("src");
+                    if (value) {
+                        value = value.replace("http://localhost:7000", "admin.umt.edu.pk");
+                        $(this).attr("src", value);
+                    }
+                });               
+
+            }
+
+            //Replace Hon Http To Https
+            if (window.location.href.indexOf('https://www.umt.edu.pk/')>-1) {
+            //$("a").each(function () {
+            //    var value = $(this).attr("href");
+            //    if (value) {
+            //        $(this).attr("href", value.replace('http://', 'https://'));
+            //    }
+            //});
+            $("script").each(function () {
+                var value = $(this).attr("src");
+                if (value) {
+                    $(this).attr("src", value.replace('http://', 'https://'));
+                }
+            });
+            $("img").each(function () {
+                var value = $(this).attr("src");
+                if (value) {
+                    $(this).attr("src", value.replace('http://', 'https://'));
+                }
+            });
+            $("iframe").each(function () {
+                var value = $(this).attr("src");
+                if (value) {
+                    $(this).attr("src", value.replace('http://', 'https://'));
+                }
+            });
+            }
+
+    });
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-4984482-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <meta name="p:domain_verify" content="c451fe533b61ef8fe1adbbb51c317fe0" />
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <form name="aspnetForm" method="post" action="/ocms/Home.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMzU2MDM2MDkwD2QWAmYPZBYEAgEPZBYCAgsPZBYEAgEPFgIeB2NvbnRlbnRlZAIDDxYCHwBlZAIDDxYCHgZhY3Rpb24FDy9vY21zL0hvbWUuYXNweBYCAgMPZBYIAgEPFgIeA3NyYwVaaHR0cHM6Ly9hZG1pbi51bXQuZWR1LnBrL01lZGlhL1NpdGUvVU1UL1N1YlNpdGVzL09DTVMvUGFnZUJhbm5lci82MzY2MTYzNzQyMTM4MzYxODUzODMuanBnZAIDDxYCHglpbm5lcmh0bWwF+AU8dWwgY2xhc3M9J25hdiBuYXZiYXItbmF2Jz48bGkgY2xhc3M9J2Ryb3Bkb3duJz48YSBocmVmPSdodHRwczovL3d3dy51bXQuZWR1LnBrL29jbXMvSG9tZS5hc3B4Jz5Ib21lPC9hPjwvbGk+PGxpIGNsYXNzPSdkcm9wZG93bic+PGEgaHJlZj0naHR0cHM6Ly93d3cudW10LmVkdS5way9vY21zL1Njb3BlLW9mLVNlcnZpY2VzLmFzcHgnPlNjb3BlIG9mIFNlcnZpY2VzPC9hPjwvbGk+PGxpIGNsYXNzPSdkcm9wZG93bic+PGEgaHJlZj0naHR0cHM6Ly93d3cudW10LmVkdS5way9vY21zL0hhbmRvdXQuYXNweCc+SGFuZG91dDwvYT48L2xpPjxsaSBjbGFzcz0nZHJvcGRvd24nPjxhIGhyZWY9J2h0dHBzOi8vd3d3LnVtdC5lZHUucGsvb2Ntcy9TT1BzLmFzcHgnPlNPUHM8L2E+PC9saT48bGkgY2xhc3M9J2Ryb3Bkb3duJz48YSBocmVmPSdodHRwczovL3d3dy51bXQuZWR1LnBrL29jbXMvVHJhbnNwb3J0YXRpb24uYXNweCc+VHJhbnNwb3J0YXRpb248L2E+PC9saT48bGkgY2xhc3M9J2Ryb3Bkb3duJz48YSBocmVmPSdodHRwczovL3d3dy51bXQuZWR1LnBrL29jbXMvRkFRcy5hc3B4Jz5GQVFzPC9hPjwvbGk+PGxpIGNsYXNzPSdkcm9wZG93bic+PGEgaHJlZj0naHR0cHM6Ly93d3cudW10LmVkdS5way9vY21zL091ci1UZWFtLmFzcHgnPk91ciBUZWFtPC9hPjwvbGk+PGxpIGNsYXNzPSdkcm9wZG93bic+PGEgaHJlZj0naHR0cHM6Ly93d3cudW10LmVkdS5way9vY21zL0NvbnRhY3QtdXMuYXNweCc+Q29udGFjdCB1czwvYT48L2xpPjwvdWw+ZAIFDxYCHwMFL09mZmljZSBvZiBDYW1wdXMgTWFuYWdlbWVudCBhbmQgU2VydmljZXMgKE9DTVMpZAIHDxYCHwMF/wg8aDI+SW50cm9kdWN0aW9uPC9oMj4KPHA+VGhlIE9mZmljZSBvZiBDYW1wdXMgTWFuYWdlbWVudCBhbmQgU2VydmljZXMgKE9DTVMpIGVuc3VyZXMgY29uZHVjaXZlIGVudmlyb25tZW50IGFuZCBzbW9vdGggZnVuY3Rpb25pbmcgb2YgZGFpbHkgb3BlcmF0aW9ucyBpbiBVTVQsIGkuZS4gZWxlY3RyaWNpdHksIHdhdGVyLCBnYXMsIGZhY2lsaXRpZXMuIE9DTVMgaXMgcmVzcG9uc2libGUgZm9yIGluaXRpYXRpb24gYW5kIGV4ZWN1dGlvbiBvZiB2YXJpb3VzIHByb2plY3RzIGkuZS4gcmVwYWlyIGFuZCBtYWludGVuYW5jZSwgcmVwbGFjZW1lbnQgb2YgZnVybml0dXJlLCBjaXZpbCB3b3Jrcywgd2hpdGUtd2FzaCwgbWFuYWdlbWVudCBvZiBvZmZpY2UgYm95cywgaG91c2VrZWVwZXJzLCBsaWZ0IG1hbmFnZW1lbnQsIHNwYWNlIGFsbG9jYXRpb24sIGNsYXNzcm9vbXMgYW5kIG9mZmljZSBtYWludGVuYW5jZXMsIGV0Yy4gSXQgaXMgYWxzbyByZXNwb25zaWJsZSBmb3IgY28tb3JkaW5hdGlvbiB3aXRoIHJlbGV2YW50IGdvdmVybm1lbnQgLyBwcml2YXRlIGFnZW5jaWVzIGFuZCBlZmZlY3RpdmUgaGFuZGxpbmcgb2YgbGVnYWwgLyBhZG1pbmlzdHJhdGl2ZSBhZmZhaXJzLiBPQ01TIGVuc3VyZXMgdGhlIHByb3Zpc2lvbiBvZiBmYWNpbGl0aWVzIGkuZS4sIGNhZmV0ZXJpYSwgcGhvdG9jb3BpZXJzLCBhbmQgc28gZm9ydGgsIGZvciBVTVQgU3R1ZGVudHMgYW5kIGVtcGxveWVlcy48L3A+CjxoMz5WaXNpb24mbmJzcDs8L2gzPgo8cD5UbyBlbnN1cmUgdW5pbnRlcnJ1cHRlZCBsb2dpc3RpYyAvIGFkbWluaXN0cmF0aXZlIHN1cHBvcnQgd2l0aCBhIHZpZXcgdG8gZW5oYW5jaW5nIGVmZmljaWVuY3kgdGhyb3VnaCB1bnN0aW50ZWQgZGVkaWNhdGlvbnMgaW4gcHJvbW90aW5nIHByZXN0aWdpb3VzIGltYWdlIG9mIFVNVC48L3A+CjxoMz5NaXNzaW9uPC9oMz4KPHA+VG8gZW5zdXJlIHVuaW50ZXJydXB0ZWQgcHJvdmlzaW9uIG9mIGZhY2lsaXRpZXMgYW5kIHNlcnZpY2VzIHRvIHRoZSBVTVQgbWFuYWdlbWVudCwgc3RhZmYgYW5kIHBhcnRpY2lwYW50cyB0aHJvdWdoIG9wZXJhdGlvbmFsIGFuZCBhZG1pbmlzdHJhdGl2ZSBzdXBwb3J0IHRvIGVuaGFuY2UgZWZmaWNpZW5jeSBhbmQgcHJvbW90ZSB0aGUgaW1hZ2Ugb2YgVU1UPC9wPmRkvge9LM+OPt/6Cfl+4+ddUN/ObCA/Pwil4HbmQ5pSGoE=" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="65E7F3AF" />
+</div>
+        <div class="wraper">
+            
+
+<div id="pnlHeader" class="header">
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="container">
+            <ul class="language-loginbar pull-right">
+                <li>
+                    <div id="google_translate_element" style="display: none"></div>
+                    <select class="translationlinks form-control">
+                        <option data-langval="" data-lang="" value="">Select Language</option>
+                    </select>
+                </li>
+                
+            </ul>
+            <!-- Topbar Navigation -->
+            <ul class="loginbar pull-right">
+                <li class=""><a href="/">Home</a></li>
+                <li class="topbar-devider"></li>
+                <li class=""><a href="http://mail.umt.edu.pk/">Webmail</a></li>
+                <li class="topbar-devider"></li>
+                <li><a href="//www.umt.edu.pk/ilmfund/home.aspx" style="color: #1b4b84; font-family: OpensansSemibold; font-size: 12px;">ILM Fund</a></li>
+                <li class="topbar-devider"></li>
+                <li><a href="//www.umt.edu.pk/16thConvocation2018/Home.aspx" target="_blank" style="color: #1b4b84; font-family: OpensansSemibold; font-size: 12px;">Convocation</a></li>
+                
+                <li class="topbar-devider"></li>
+                <li><a href="http://alumni.umt.edu.pk">Alumni</a></li>
+                <li class="topbar-devider"></li>
+                <li><a href="http://career.umt.edu.pk">Student Placements</a></li>
+                <li class="topbar-devider"></li>
+
+                <li class="topbar-devider"></li>
+                <li class="topbar-search">
+                    <i class="fa fa-search search-btn"></i>
+                    <div class="search">
+                        <div class="input-group">
+                            <input id="txtHeaderSearch" type="text" class="form-control" placeholder="Search" />
+                            <span class="input-group-btn">
+                                <button id="btnHeaderSearch" class="btn-u" type="button" onclick="fn_doSearch();">Go</button>
+                            </span>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+            <!-- End Topbar Navigation -->
+        </div>
+    </div>
+    <!-- End Topbar -->
+
+    <!-- Navbar -->
+    <div class="navbar" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="fa fa-bars"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img id="Img2" class="img-responsive" src="{% static 'style/images/nlogo.png' %}" alt="Logo" />
+                    
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Home -->
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">About UMT
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="container">
+                                <div class="row equal-height">
+                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 equal-height-in">
+                                        <ul class="about_links">
+                                            <li>
+                                                <ul class="list-unstyled equal-height-list">
+                                                     <li>
+                                                         <i class="fa fa-angle-right"></i>
+                                                        <a href="#">Founder's Message</a>
+
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 equal-height-in">
+                                        <ul class="about_links">
+                                            <li>
+                                                <ul class="list-unstyled equal-height-list">
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="/About-UMT/Vision-and-Mission.aspx">Vision and Mission</a>
+
+                                                    </li>
+                                                    
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 equal-height-in">
+                                        <ul class="about_links">
+                                            <li>
+                                                <ul class="list-unstyled equal-height-list">
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="/About-UMT/Milestones.aspx">Milestones Achieved</a>
+
+                                                    </li>
+                                                   
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 equal-height-in">
+                                        <ul class="about_links">
+                                            <li>
+                                                <ul class="list-unstyled equal-height-list">
+                                                     <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="/About-UMT/Memberships.aspx">Memberships</a>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="/Contact-us.aspx">Contact us</a>
+
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End Home -->
+
+                    <!-- Pages -->
+                    <li class="dropdown">
+                        <a href="http://admissions.umt.edu.pk/" class="dropdown-toggle" target="_blank" style="background:#064473; color: #fff">Admissions
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="container">
+                                <div class="row equal-height">
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li><a href="javascript:void()">Degree Programs</a>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="http://admissions.umt.edu.pk/Academic/Undergraduate.aspx" target="_blank">Undergraduate Programs</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li>
+                                                <a href="javascript:void()">Related links</a>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="http://admissions.umt.edu.pk/Attestation.aspx" target="_blank">Attestation</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li>
+                                                <a href="javascript:void()">Financial Assistance</a>
+                                                <ul class="list-unstyled">
+                                                    
+                                                    
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="//www.umt.edu.pk/org/Scholarship-Financial-Assistance/Merit-Based-Other-Scholarships.aspx">Merit Based and Other Scholarships</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3 equal-height-in">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled equal-height-list">
+                                                    <li>
+                                                        <a href="javascript:void()">Apply Online</a>
+                                                        <ul class="list-unstyled">
+
+                                                            <li>
+                                                                <i class="fa fa-angle-right"></i>
+                                                                <a href="http://admissions.umt.edu.pk/Admission-Criteria/How-to-Apply.aspx" target="_blank">How to Apply</a>
+                                                            </li>
+                                                            <li>
+                                                                <i class="fa fa-angle-right"></i>
+                                                                <a href="http://admissions.umt.edu.pk/Faqs.aspx" target="_blank">FAQs</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled" style="display: none;">
+                                                    <li>
+                                                        <img style="width: 100%;" src="{% static 'images/schools/sen.jpg' %}" /></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End Pages -->
+
+                    <!-- Features -->
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Academics
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="container">
+                                <div class="row equal-height">
+                                    <div class="col-md-4 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li>
+                                                <a href="javascript:void()">Schools</a>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="http://sbe.umt.edu.pk/" target="_blank">School of Business and Economics</a>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li>
+                                                <a href="javascript:void()">Institutes</a>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="http://ias.umt.edu.pk/" target="_blank">Institute of Aviation Studies
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="//my.umt.edu.pk/" target="_blank">Participants Help Desk</a>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li>
+                                                <a href="javascript:void()">Centers and Initiatives</a>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="//ctl.umt.edu.pk/">Teaching and Learning</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End Features -->
+
+                    <!-- Portfolio -->
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Offices
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="container">
+                                <div class="row equal-height">
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li>
+                                                <a href="javascript:void()">Management Offices</a>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="#">Campus Management and Services</a>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li>
+
+                                                <ul class="list-unstyled">
+
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="//www.umt.edu.pk/ots/home.aspx">Technology Support</a>
+                                                    </li>                                                 
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li>
+                                                <a href="javascript:void()">Statutory Office</a>
+                                                <ul class="list-unstyled">
+
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="//www.umt.edu.pk/treasurer/home.aspx">Treasurer</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li>
+                                                <a href="javascript:void()">Related Links</a>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="//www.umt.edu.pk/ocm/umt-news.aspx">UMT News</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Ens Portfolio -->
+
+                    <!-- Blog -->
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Publications
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="container">
+                                <div class="row equal-height">
+                                    <div class="col-md-4 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li>
+                                                <a href="javascript:void()">Publications</a>
+                                                <ul class="list-unstyled">
+
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="//www.umt.edu.pk/ocm/Publications.aspx#ProgramBrochures">Program Brochures</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li>
+                                                <a href="javascript:void()">Journals</a>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="https://ssc.umt.edu.pk/sir/home.aspx" target="_blank">Scientific Inquiry and Review
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- End Blog -->
+                    <!-- Pages -->
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Life at UMT
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="container">
+                                <div class="row equal-height">
+                                    <div class="col-md-4 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li><a href="javascript:void()">News and Events</a>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="//www.umt.edu.pk/News/Default.aspx">Latest news</a>
+                                                    </li>
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a href="#">16th Convocation 2018</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4 equal-height-in">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <ul class="list-unstyled equal-height-list">
+                                                    <li>
+                                                        <a href="javascript:void()">Facilities</a>
+                                                        <ul class="list-unstyled">
+                                                            <li>
+                                                                <i class="fa fa-angle-right"></i>
+                                                                <a href="https://campushelp.umt.edu.pk/" target="_blank">UMT Campus Management Helpdesk </a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 equal-height-in">
+                                        <ul class="list-unstyled equal-height-list">
+                                            <li>
+                                                <a href="javascript:void()">Conferences</a>
+                                                <ul class="list-unstyled">
+
+                                                    <li>
+                                                        <i class="fa fa-angle-right"></i>
+                                                        <a target="_blank" href="http://www.caeer.org/conference.php?slug=CEWM-16&sid=3&catDid=105">CEWM-16 </a>
+                                                    </li>
+                                                    
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/Contact-us.aspx" class="dropdown-toggle">Contact us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function fn_doSearch() {
+        if (document.getElementById('rdFilterWeb').checked) {
+            window.location = "/Search.aspx?q=" + $("#txtHeaderSearch").val();
+        } else {
+            window.location = "/Directory/Search.aspx?filter=" + $("#txtHeaderSearch").val() + "#search";
+        }
+    }
+</script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,ur,tr', autoDisplay: false }, 'google_translate_element');
+    }
+    function triggerHtmlEvent(element, eventName) {
+        var event;
+        if (document.createEvent) {
+            event = document.createEvent('HTMLEvents');
+            event.initEvent(eventName, true, true);
+            element.dispatchEvent(event);
+        } else {
+            event = document.createEventObject();
+            event.eventType = eventName;
+            element.fireEvent('on' + event.eventType, event);
+        }
+    }
+
+    $('.translationlinks').on('change', function (e) {
+        e.preventDefault();
+        var optionSelected = $("option:selected", this);
+        var valueSelected = this.value;
+
+        var lang = optionSelected.data("lang");
+        var langval = optionSelected.data("langval");
+        $('#google_translate_element select option').each(function () {
+            if ($(this).text().indexOf(lang) > -1) {
+                if ($('.goog-te-combo').val() != langval) {
+                    $(this).parent().val($(this).val());
+                    var container = document.getElementById('google_translate_element');
+                    var select = container.getElementsByTagName('select')[0];
+                    triggerHtmlEvent(select, 'change');
+                }
+                if (langval == "") {
+                    $(".goog-te-banner-frame.skiptranslate").hide();
+                    $('body').addClass("body-top");
+                }
+                else {
+                    $(".goog-te-banner-frame.skiptranslate").show();
+                    $('body').removeClass("body-top");
+                }
+            }
+        });
+    });
+
+
+    // Flag click handler -->
+    //$(".targetLanguage").on("click", function () {
+    //    $(this).toggleClass('btn-primary').siblings().removeClass('btn-primary');
+    //});
+
+    ////$('.translation-links a').click(function (e) {
+    ////    e.preventDefault();
+    ////    $(this).removeClass("btn-primary");
+    ////    var lang = $(this).closest("a").data("lang");
+    ////    var langval = $(this).closest("a").data("langval");
+    ////    $(this).closest("a").addClass("btn-primary");
+    ////    $('#google_translate_element select option').each(function () {
+    ////        if ($(this).text().indexOf(lang) > -1) {
+    ////            if ($('.goog-te-combo').val() != langval) {
+    ////                $(this).parent().val($(this).val());
+    ////                var container = document.getElementById('google_translate_element');
+    ////                var select = container.getElementsByTagName('select')[0];
+    ////                triggerHtmlEvent(select, 'change');
+    ////            }
+    ////            if (langval == "") {
+    ////                $(".goog-te-banner-frame.skiptranslate").hide();
+    ////                $('body').addClass("body-top");
+    ////            }
+    ////            else {
+    ////                $(".goog-te-banner-frame.skiptranslate").show();
+    ////                $('body').removeClass("body-top");
+    ////            }
+    ////        }
+    ////    });
+    ////});
+</script>
+
+<scsktript type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></scsktript>
+
+    <div class="article">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                    <div id="ctl00_cphContent_pnlLeftMenu">
+                        <ul class='nav navbar-nav'>
+                            <li class='dropdown'>
+                            <a href='#'>Home</a>
+                            </li>
+                        <li class='dropdown'><a href='h#'>Scope of Services</a></li>
+                        <li class='dropdown'><a href='#'>Transportation</a></li>
+                        <li class='dropdown'><a href='#'>FAQs</a></li>
+                        </ul></div>
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                    <div class="row">
+                        <div class="section-heading">
+                            <h1 id="ctl00_cphContent_h1SiteTitle" class="site-title">Office of Campus Management and Services (OCMS)</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div id="ctl00_cphContent_pnlArticle"><h2>Introduction</h2>
+<p>The Office of Campus Management and Services (OCMS) ensures conducive environment and smooth functioning of daily operations in UMT, i.e. electricity, water, gas, facilities. OCMS is responsible for initiation and execution of various projects i.e. repair and maintenance, replacement of furniture, civil works, white-wash, management of office boys, housekeepers, lift management, space allocation, classrooms and office maintenances, etc. It is also responsible for co-ordination with relevant government / private agencies and effective handling of legal / administrative affairs. OCMS ensures the provision of facilities i.e., cafeteria, photocopiers, and so forth, for UMT Students and employees.</p>
+<h3>Vision&nbsp;</h3>
+<p>To ensure uninterrupted logistic / administrative support with a view to enhancing efficiency through unstinted dedications in promoting prestigious image of UMT.</p>
+<h3>Mission</h3>
+<p>To ensure uninterrupted provision of facilities and services to the UMT management, staff and participants through operational and administrative support to enhance efficiency and promote the image of UMT</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                <h2>University of Management and Technology</h2>
+                <p>C-II Johar Town Lahore <br />Tel.: +92 42 35212801-10 </p>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                <h2>Study at UMT</h2>
+                <ul class="list-unstyled">
+                    <li><a href="#">Undergraduate</a></li>
+                    <li><a href="#">Graduate</a></li>
+                    <li><a href="#">MS/MPhil Programs</a></li>
+                    <li><a href="#">PhD Programs</a></li>
+                    <li><a href="#">Apply Online</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <h2>About the University</h2>
+                <ul class="list-unstyled">
+                    <li><a href="#">UMT at Glance</a></li>
+                    <li><a href="#">Accreditations</a></li>
+                    <li><a href="#">Memberships</a></li>
+                    <li><a href="#">Giving to UMT</a></li>
+                    <li><a href="#">Life at UMT</a></li>
+                    <li><a href="#">News</a></li>
+                 
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                <h2>Resources</h2>
+                <ul class="list-unstyled">
+                    <li><a href="#" target="_blank" >Library</a></li>
+                    <li><a href="#">IPC</a></li>
+                    <li><a href="#" >UMT Student Housing</a></li>
+                    
+                   
+                    <li><a href="#"  >Souvenir Shop</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Join us online</h2>
+                        <ul class="list-unstyled join-us">
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="copy-right">
+    <div class="container">
+       <div class="col-md-6 col-sm-6">   <p>© Copyright UMT, 2015. All Rights reserved.</p> </div>
+        <div class="col-md-6 col-sm-6">
+            <span style="color: #9C9C9C;margin-right:20px;">Website Credits:  <a style="color: #FFF;" href="#">OCM-UMT</a></span>
+        <span>Back to Top <i class="fa fa-angle-up"></i> </span>
+           </div>
+    </div>
+</div>
+<script>
+    function subscription()
+    {
+        window.location = "http://subscribe.umt.edu.pk/?email=" + $("#txtSubscription").val();
+    }
+</script>
+    
+        </div>
+    </form>
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '472085783589298'); 
+fbq('track', 'PageView');
+</script>
+<noscript>
+ <img height="1" width="1" 
+src="https://www.facebook.com/tr?id=472085783589298&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+
+   
+       <script lang="javascript" type="text/javascript" src="{% static 'javascript/app.js' %}"></script>
+    <!-- slick slider -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
+    <script type="text/javascript" src="{% static 'javascript/enscroll-0.6.1.min.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="//admin.umt.edu.pk/JS/formValidation.min.js"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'javascript/jquery.prettyPhoto.js' %}"></script>
+  
+    <script>
+        //$(function () {
+        //    $("#draggable").draggable(
+        //        {
+        //            containment: "document"
+        //        }
+        //        );
+        //});
+        function blinker() {
+            $('#blink').fadeOut(600);
+            $('#blink').fadeIn(600);
+        }
+        setInterval(blinker, 1000);
+    </script>
+    <link href="https://cdn.botframework.com/botframework-webchat/latest/botchat.css" rel="stylesheet" />
+       <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+    <div id="live-chat-container" style="position: fixed;bottom: 0px;right: 5px;width: 350px;height:37px;z-index:999999">
+        <div class="heading" style="background-color: #3593dd; padding: 5px 10px; cursor: pointer;">
+            <h2 style="color: #FFF; margin: 0px; font-size: 16px; font-family: OpenSansSemiBold; line-height: 26px;">Live Chat<i class='pull-right fa fa-comment' style="padding-top:3px"></i></h2>
+        </div>
+         <div style="background: #fff;" role="main" id="bot"></div>
+    </div>
+   
+
+    <script>
+       
+         const styleOptions = {
+             botAvatarImage: 'https://admin.umt.edu.pk/Media/Site/UMT/FileManager/UMT-logo-notext.png',
+             botAvatarInitials: 'BF',
+             userAvatarImage: 'https://admin.umt.edu.pk/Media/Site/UMT/FileManager/UserAvator100.png',
+             userAvatarInitials: 'WC'
+            };
+      window.WebChat.renderWebChat({
+          directLine: window.WebChat.createDirectLine({ token: 'AlgbiQ5E1Ds.cw0cpCJNTczFakIv5iQxEDHcaXw6-PMMw-JUh2vMJA4' }),
+          userID: 'UMT ',
+          styleOptions,
+          sendTypingIndicator:true,
+          botAvatarInitials: 'UMT',
+          userAvatarInitials: 'You',
+          resize:"detect"
+
+      }, document.getElementById('bot'));
+
+      $("#live-chat-container div.heading").click(function () {
+          if (Math.trunc($("#bot").height()) == 400) {
+              $("#bot").height(0);
+              $("#live-chat-container").width(350);
+              $("#live-chat-container").height(37);
+              $("#live-chat-container").css("bottom",0);
+          }
+          else {
+              $("#bot").height(400);
+              $("#live-chat-container").width(350);
+              $("#live-chat-container").height(430);
+              $("#live-chat-container").css("bottom",15);
+          }
+      });
+
+    </script>
+ 
+   
+   
+</body>
+</html>

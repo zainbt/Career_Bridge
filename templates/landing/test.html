@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <div id="mainWrapper">
+        <script type="text/javascript"></script>
+        <canvas width="1680" height="648"></canvas>
+
+        <div id="mainHomeLanding" class="mainSplashMain homeSplash">
+
+            <div class="mainSplash">s
+                <div class="container">
+
+                    <div id="wrapper">
+
+                        <h1>
+                            <img id="menu" src="{% static 'me.png' %}" width="60" height="60">
+                            <span id="title">
+                                <span class="title-letter">C</span>
+                            <span class="title-letter">A</span>
+                            <span class="title-letter">R</span>
+                            <span class="title-letter">E</span>
+                            <span class="title-letter">E</span>
+                            <span class="title-letter">R</span>
+                            <span class="title-letter">&nbsp;</span>
+                            <span class="title-letter">B</span>
+                            <span class="title-letter">R</span>
+                            <span class="title-letter">D</span>
+                            <span class="title-letter">I</span>
+                            <span class="title-letter">G</span>
+                            <span class="title-letter">E</span>
+
+
+                            </span>
+                            <br/>
+
+                            <span id="sub-title">BRIDGE TO BETTERMENT</span>
+                        </h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript"></script>
+        <script type="text/javascript" defer="defer">
+            var flag = !0,
+                homeCanvas = !0;
+
+            function homeSplash() {
+                $("#splashExplore").fadeOut(300), $("#mainMenuLink").removeClass("mainMenuLinkwhite"), $("#header.headerWhite #headerLang .formField").addClass("darkStyle"), $("#header").removeClass("headerWhite")
+            };
+        </script>
+        <script src="{% static 'js/canvasjs.js' %}" type="text/javascript" defer="defer"></script>
+
+    </div>
+    <div class="flex-container" style="display: none;">
+        <div id="home" class="flex-slide home">
+            <div class="flex-title flex-title-home">Home</div>
+            <div class="flex-about flex-about-home">
+                <p class="mainIntro">Click here to navigate to the home section of the website</p>
+            </div>
+        </div>
+        <div class="flex-slide about">
+            <div class="flex-title">About Us</div>
+            <div class="flex-about">
+                <h2>Mission</h2>
+                <p class="mainIntro">
+                    Mission goes here.
+                </p>
+
+                <h2>Vision</h2>
+                <p class="mainIntro">
+                    Creating multiple opportunities for corporate sector, providing them the best universities to work with.
+                </p>
+            </div>
+        </div>
+        <div class="flex-slide work">
+            <div class="flex-title">Work</div>
+            <div class="flex-about">
+                <p class="mainIntro">Listing relevant snippets of work:</p>
+                <ul>
+                    <li>IT Industry</li>
+                    <li>Business Development</li>
+                    <li>Architecture</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex-slide contact">
+            <div class="flex-title">Contact</div>
+            <div class="flex-about form-group">
+                <form action="post">
+                    <input class="form-control" name="" type="text" maxlength="25" placeholder="Name">
+                    <br>
+                    <input class="form-control" name="" type="email" maxlength="50" placeholder="Email">
+                    <br>
+                    <input class="form-control" name="contactUsSubject" type="text" maxlength="50" placeholder="Subject">
+                    <br>
+                    <textarea class="form-control" name="contactUsDescription" placeholder="Description" id="" cols="30" rows="5"></textarea>
+
+                    <button type="button" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

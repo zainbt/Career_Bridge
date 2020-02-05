@@ -1,0 +1,142 @@
+<html lang="en">
+{% load static %}
+<head>
+
+
+    <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'jquery-1.11.1.min.js' %}" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+</head>
+
+<body class="homePage" style="    background: #fff">
+    <header id="masthead" class="header user-scrolled">
+        <div class="header__in">
+            <div class="header__el header-logo">
+                <h2>
+                    <a href="/" class="logo">
+                        <img class="logo__img" src="{% static 'nlogo.png' %}" alt="Northfield">
+                    </a>
+                </h2>
+            </div>
+            <div class="header__menu">
+                <nav class="nav-menu" role="navigation">
+                    <ul id="menu-main-menu" class="menu">
+                        <li id="menu-item-156" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-156">
+                            <a href="#" aria-current="page">Home</a></li>
+                        <li>
+                        <li id="menu-item-157" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-156">
+                            <a href="{% url 'accounts:login' %}" aria-current="page">SignIn</a>
+                        </li>
+                         <li id="menu-item-158" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-156">
+                            <a href="{% url 'accounts:register' %}" aria-current="page">SignUp</a>
+                        </li>
+                         <li id="menu-item-159" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-156">
+                            <a href="{% url 'accounts:contact' %}" aria-current="page">ContactUs</a>
+                        </li>
+                         <li id="menu-item-160" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-156">
+                            <a href="https://www.termsandcondiitionssample.com/live.php?token=AhD0EXc3MwIIJ5DYua1aAzqH2kf3Xfqi" aria-current="page">Terms&Conditions</a>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+<div class="active-cyan-3 active-cyan-4 mb-4" >
+  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+</div>
+        </div>
+    </header>
+
+
+    <div id="mainWrapper">
+        <script type="text/javascript"></script>
+        <canvas width="1680" height="648"></canvas>
+
+        <div id="mainHomeLanding" class="mainSplashMain homeSplash">
+
+            <div class="mainSplash">
+                <div class="container">
+
+                    <div id="wrapper">
+
+                        <h1>
+                            <img id="menu" src="{% static 'me.png' %}" width="60" height="60">
+                            <span id="title">
+
+            <span class="title-letter">C</span>
+                            <span class="title-letter">A</span>
+                            <span class="title-letter">R</span>
+                            <span class="title-letter">E</span>
+                            <span class="title-letter">E</span>
+                            <span class="title-letter">R</span>
+                            <span class="title-letter">&nbsp;</span>
+                            <span class="title-letter">B</span>
+                            <span class="title-letter">R</span>
+                            <span class="title-letter">I</span>
+                            <span class="title-letter">D</span>
+                            <span class="title-letter">G</span>
+                            <span class="title-letter">E</span>
+                            </span>
+                            <br/>
+                        </h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript"></script>
+        <script type="text/javascript" defer="defer">
+            var flag = !0,
+                homeCanvas = !0;
+
+            function homeSplash() {
+                $("#splashExplore").fadeOut(300), $("#mainMenuLink").removeClass("mainMenuLinkwhite"), $("#header.headerWhite #headerLang .formField").addClass("darkStyle"), $("#header").removeClass("headerWhite")
+            };
+        </script>
+        <script src="{% static 'canvasjs.js' %}" type="text/javascript" defer="defer"></script>
+
+    </div>
+    <div class="flex-container" style="display: none;">
+        <div id="home" class="flex-slide home">
+            <div class="flex-title flex-title-home">Home</div>
+            <div class="flex-about flex-about-home">
+                <p>Click here to navigate to the home section of the website</p>
+            </div>
+        </div>
+        <div class="flex-slide about">
+            <div class="flex-title">About</div>
+            <div class="flex-about">
+                <p>Click here to navigate to the About section of the website</p>
+            </div>
+        </div>
+        <div class="flex-slide work">
+            <div class="flex-title">Work</div>
+            <div class="flex-about">
+                <p>Listing relevant snippets of work:</p>
+                <ul>
+                    <li>First piece of work</li>
+                    <li>Second piece of work</li>
+                    <li>Third piece of work</li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex-slide contact">
+            <div class="flex-title">Contact</div>
+            <div class="flex-about">
+                <p>Use the contact form below</p>
+                <form class="contact-form">
+                    <p>Email <input type="text" name="email"></p>
+                    <p>Comment <textarea type="text" name="comment" row="5"></textarea></p>
+                    <p><input type="submit" name="email" value="Send Message"></p>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'landing/script.js' %}"></script>
+</body>
+
+</html>

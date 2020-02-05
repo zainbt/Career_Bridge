@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+<style>
+    .row {
+    margin-right: -138px;
+    margin-left: -138px;
+}
+</style>
+   <link rel='stylesheet' id='wc-gateway-ppec-frontend-css' href='https://colorlib.com/wp/wp-content/plugins/woocommerce-gateway-paypal-express-checkout/assets/css/wc-gateway-ppec-frontend.css?ver=5.3.2' media='all' />
+    <link rel='stylesheet' id='parent-style-css' href='https://colorlib.com/wp/wp-content/themes/colorlib-v496/style.css?ver=5.3.2' media='all' />
+    <link rel='stylesheet' id='wpex-style-css' href='https://colorlib.com/wp/wp-content/themes/v3ct/style.css?ver=4.9.6' media='all' />
+    <link rel='stylesheet' id='wpex-visual-composer-css' href='https://colorlib.com/wp/wp-content/themes/colorlib-v496/assets/css/wpex-visual-composer.css?ver=4.9.6' media='all' />
+    <link rel='stylesheet' id='wpex-woocommerce-css' href='https://colorlib.com/wp/wp-content/themes/colorlib-v496/assets/css/wpex-woocommerce.css?ver=4.9.6' media='all' />
+    <link rel='stylesheet' id='wpex-bbpress-css' href='https://colorlib.com/wp/wp-content/themes/colorlib-v496/assets/css/wpex-bbpress.css?ver=4.9.6' media='all' />
+    <link rel='stylesheet' id='bpbbpst-bbpress-widget-css-css' href='https://colorlib.com/wp/wp-content/plugins/buddy-bbpress-support-topic/css/bpbbpst-bbpress-widget.css?ver=2.1.4' media='all' /><meta name="referrer" content="always" />
+
+
+<body class="search search-results wp-custom-logo theme-colorlib-v496 woocommerce-no-js wpex-theme wpex-responsive full-width-main-layout no-composer wpex-live-site content-right-sidebar has-sidebar has-topbar has-breadcrumbs sidebar-widget-icons hasnt-overlay-header smooth-fonts wpex-mobile-toggle-menu-icon_buttons has-mobile-menu wpb-js-composer js-comp-ver-6.0.5 vc_responsive">
+    <div class="wpex-site-overlay"></div>
+    <a href="#content" class="skip-to-content">skip to Main Content</a><span data-ls_id="#site_top"></span>
+    <div id="outer-wrap" class="clr">
+        <div id="wrap" class="clr">
+           <main id="main" class="site-main clr">
+                <div id="content-wrap" class="container clr">
+                    <div id="primary" class="content-area clr">
+                        <div id="content" class="site-content">
+                            <div id="search-entries" class="clr">
+                                {% for i in obj %}
+                                <article id="post-48458" class="search-entry clr post-48458 post type-post status-publish format-standard has-post-thumbnail hentry category-reviews tag-classifieds tag-directory-theme tag-directory-wordpress-theme tag-listings-wordpress-theme tag-wordpress-theme-review entry has-media">
+                                    <div class="search-entry-thumb">
+                                        <a href="#" title="ClassyAds WordPress Theme Review: Build a Listings Directory with WordPress" class="search-entry-img-link"><img alt="ClassyAds WordPress Theme Review: Build A Listings Directory With WordPress" src="https://colorlib.com/wp/wp-content/uploads/sites/2/ClassyAds-classifieds-wordpress-theme-125x125.jpg" data-no-retina width="125"
+                                                height="125" /></a>
+                                    </div>
+                                    <div class="search-entry-text">
+                                        <header class="search-entry-header clr">
+                                            <h2 class="search-entry-header-title entry-title"><a href="#">Project Name: - {{ i.name }}</a></h2>
+                                        </header>
+                                        <div class="search-entry-excerpt clr">
+                                            <p>
+                                            <h4>Description :- </h4>  {{i.description}}
+                                            </p>
+                                            <p> <h4>Category :- </h4> <br> {{i.Sub_category}}</p>
+                                            <p><h4>Duration :- </h4> <br>  {{i.durations}}</p>
+                                            <p><h4>Bidding Time :- </h4> <br> {{i.bidding}}</p>
+                                        </div>
+                                       <div class="pull-right">
+                                           <a href="{% url 'university:bid' %}" class="btn btn-primary">create bid</a>
+                                       </div>
+                                    </div>
+                                </article>
+                                {% endfor %}
+
+                            </div>
+
+                        </div>
+                    </div>
+<!--                    <aside id="sidebar" class="sidebar-container sidebar-primary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">-->
+<!--                        <div id="sidebar-inner" class="clr">-->
+<!--                            <div id="nav_menu-5" class="sidebar-box widget widget_nav_menu clr">-->
+<!--                                <div class="widget-title">Our Themes</div>-->
+<!--                                <div class="menu-our-themes-container">-->
+<!--                                    <ul id="menu-our-themes" class="menu">-->
+<!--                                        <li id="menu-item-117655" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-117655"><a href="https://colorlib.com/wp/themes/">All Free Themes</a></li>-->
+<!--                                        <li id="menu-item-35770" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35770"><a title="Activello &#8211; Simple Multipurpose Blog Theme" href="https://colorlib.com/wp/themes/activello/">Activello Theme</a></li>-->
+<!--                                        <li id="menu-item-117654" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-117654"><a href="https://colorlib.com/wp/forums/">Support Forum</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </aside>-->
+                </div>
+            </main>
+        </div>
+    </div>
+    <script type="c9c3e3b28404fc1c9c662355-text/javascript" src="https://colorlib.com/wp/wp-content/themes/v3ct/lib/cookies.min.js"></script>
+    <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="c9c3e3b28404fc1c9c662355-|49" defer=""></script>
+</body>
+
+
+
+{% endblock %}
