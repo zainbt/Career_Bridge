@@ -17,4 +17,5 @@ dj-database-url = "*"
 whitenoise = "*"
 gunicorn = "*"
 twine = "*"
+django-heroku = "*"
 
