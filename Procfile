@@ -1,1 +1,1 @@
-web: gunicorn CRUD.wsgi 
+web: gunicorn CRUD.wsgi
