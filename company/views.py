@@ -102,7 +102,7 @@ class CreateProjectView(View):
         return render(request, self.template_name, context)
 
 
-# class UserApi(viewsets.ModelViewSet):
-#     queryset = User.objects.all()
-#     serializer_class = UsersSerializer
-#     permission_classes = [IsAuthenticated]
+class UserApi(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UsersSerializer
+    permission_classes = [IsAuthenticated]

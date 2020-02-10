@@ -2,8 +2,8 @@ from django.urls import path, include
 from rest_framework import routers
 from .views import *
 
-# router = routers.DefaultRouter()
-# router.register(r'users', UserApi.as_view)
+router = routers.DefaultRouter()
+router.register(r'users', UserApi)
 app_name = 'company'
 
 urlpatterns = [
