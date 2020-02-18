@@ -106,3 +106,4 @@ class UserApi(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UsersSerializer
     permission_classes = [IsAuthenticated]
+

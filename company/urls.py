@@ -18,7 +18,6 @@ urlpatterns = [
     path('universities/', Universities.as_view(), name='universities'),
     path('create-project/', CreateProjectView.as_view(), name='create_project'),
     path('view-bids/', ViewBids.as_view(), name='view_bids'),
-    # path('user-api/', UserApi.as_view, name='userapi'),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 
 ]
