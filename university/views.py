@@ -22,7 +22,6 @@ class DashBoardView(View):
 class UProfileView(View):
     tamplate = 'university/uniProfile.html'
 
-    @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
         obj = ProfileUpdate.objects.all()
 
@@ -32,7 +31,6 @@ class UProfileView(View):
 class ProjectsView(View):
     tamplate = 'university/projects.html'
 
-    @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
         return render(request, self.tamplate)
 
@@ -40,7 +38,6 @@ class ProjectsView(View):
 class ClobsView(View):
     tamplate = 'university/collaborations.html'
 
-    @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
         return render(request, self.tamplate)
 
@@ -48,7 +45,6 @@ class ClobsView(View):
 class ProjectFormView(View):
     tamplate = 'profile/projectForm.html'
 
-    @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
         return render(request, self.tamplate)
 
@@ -56,7 +52,6 @@ class ProjectFormView(View):
 class ProfileView(View):
     template_name = 'university/universityProfile.html'
 
-    @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
         #GetMethod
         form = ProfileUpdateForm()
@@ -76,16 +71,22 @@ class ProfileView(View):
 class Bidding(View):
     tamplate = 'university/bidding.html'
 
-    @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
         obj = CreateProject.objects.all()
         return render(request, self.tamplate, {'obj': obj})
 
 
+# class CreateBid(View):
+#     tamplate = 'university/createBid.html'
+#
+#     def get(self, request, *args, **kwargs):
+#         obj = CreateBid.objects.all()
+#         return render(request, self.tamplate, {'obj': obj})
+
+
 class CreateBid(View):
     template_name = 'university/createBid.html'
 
-    @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
         #GetMethod
         form = CreateBidFroms()

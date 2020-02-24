@@ -115,5 +115,3 @@ class User(AbstractBaseUser):
     def get_absolute_url(self):
         return reverse("articles:article_detail", kwargs={"id": self.id})
 
-
-
