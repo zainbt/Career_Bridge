@@ -2,13 +2,14 @@
                     <div id="ctl00_cphContent_pnlLeftMenu">
                         <ul class='nav navbar-nav'>
                             {% if user.user_type == 1 %}
-                                <li class='dropdown'><a href='#'>U Dashboard</a></li>
+<!--                                For Uni-->
+                                <li class='dropdown'><a href='#'>Dashboard</a></li>
                                 <li class='dropdown'><a href="{% url 'university:projects'%}">Projects</a></li>
                                 <li class='dropdown'><a href="{% url 'university:bidding'%}">Bidding</a></li>
                                 <li class='dropdown'><a href="{% url 'university:colabs'%}">Collaborations</a></li>
                             {% else %}
-<!--                           Company-->
-                                <li class='dropdown'><a href="{% url 'company:dashboard'%}">C Dashboard</a></li>
+<!--                           For Company-->
+                                <li class='dropdown'><a href="{% url 'company:dashboard'%}">Dashboard</a></li>
                                 <li class='dropdown'><a href="{% url 'company:collaborations'%}">Collaboration</a></li>
                                 <li class='dropdown'><a href="{% url 'company:projects'%}">Projects</a></li>
                                 <li class='dropdown'><a href="{% url 'company:universities'%}">Universities</a></li>

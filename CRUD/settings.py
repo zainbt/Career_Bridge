@@ -11,10 +11,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import django_heroku
+import rest_framework
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -36,14 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 
-    #ThirdPartyApps
+    # ThirdPartyApps
     'accounts',
     'profiles',
     'university',
     'company',
 
-    #Libraries
+    # Libraries
     # 'cdnjs',
 ]
 
@@ -55,6 +57,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # ...
 ]
 
 ROOT_URLCONF = 'CRUD.urls'
@@ -77,7 +82,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'CRUD.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -92,14 +96,13 @@ WSGI_APPLICATION = 'CRUD.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'curd',
+        'NAME': 'carb',
         'USER': 'postgres',
-        'PASSWORD': '123',
-        'HOST': 'localhost',
-        'PORT': '5433',
+        'PASSWORD': 'zainbt1991',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -119,6 +122,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -133,14 +143,16 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-
 # Configure settings
 # CDNJS_STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'cdn')
 # CDNJS_STATIC_URL = '/static/cdn/' # With "/" at end of string
+
+django_heroku.settings(locals())
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
