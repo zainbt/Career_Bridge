@@ -8,7 +8,11 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
+<<<<<<< HEAD
 set VIRTUAL_ENV=C:\Users\miana\Desktop\CRUD\venv
+=======
+set VIRTUAL_ENV=F:\Project\CRUD\CRUD\venv
+>>>>>>> 361910098048210e471ce772aab83e96e7a41b4b
 
 if not defined PROMPT set PROMPT=$P$G
 
