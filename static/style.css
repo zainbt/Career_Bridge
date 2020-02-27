@@ -28,7 +28,7 @@
 }
 
 img {
-    max-width: 39%
+    max-width: 35%
 }
 
 ul {
@@ -470,7 +470,7 @@ textarea {
 }
 
 .header.user-scrolled {
-    background-color: #38425d;
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 10px 0
 }
 
@@ -639,12 +639,12 @@ textarea {
 
 .header__menu .menu li a:hover,
 .header__menu .menu li a:focus {
-    color: #065df9
+    color: #4BC869
 }
 
 .header__menu .menu li a:hover::after,
 .header__menu .menu li a:focus::after {
-    background-color: #065df9
+    background-color: #4BC869
 }
 
 .header__menu .menu li+li {
