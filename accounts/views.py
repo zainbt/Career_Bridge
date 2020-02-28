@@ -6,6 +6,9 @@ from .forms import RegisterForm
 from django.views.generic import View
 from django.contrib.auth.models import auth
 from django.contrib import messages
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
 class BaseIndexView(View):
@@ -75,3 +78,17 @@ class Contact(View):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.tamplate)
+
+
+class AuthenticationView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, format=None):
+        content = {
+            'user': request.user,  # `django.contrib.auth.User` instance.
+
+        }
+        print('autherization details')
+        return Response({"success":"Authorized"})
+

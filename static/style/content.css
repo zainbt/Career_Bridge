@@ -2,6 +2,9 @@
 	max-width:100%;
 
 }
+.logo__img {
+	max-width:7%;
+}
 .feature-img {
     background-color: #ECECED;
 }
@@ -89,10 +92,22 @@
     font-size:16px;
     font-family:'OpenSansLight';
 }
-.article ul.nav li.dropdown:first-child a{
+/*.article ul.nav li.dropdown:first-child a{*/
+/*    background-color:#1b4b84;*/
+/*    color:#fbfbfb;*/
+/*}*/
+
+.article ul.nav li.dropdown a:hover{
     background-color:#1b4b84;
     color:#fbfbfb;
 }
+
+.article ul.nav li.dropdown a.selected{
+    background-color:#1b4b84;
+    color:#fbfbfb;
+}
+
+
 .article ul.nav li.dropdown a:before {
     font-family:'FontAwesome';
     content:'\f105';
