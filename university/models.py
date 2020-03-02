@@ -1,4 +1,5 @@
 from django.db import models
+from accounts.models import User
 
 # Create your models here.
 
@@ -11,6 +12,7 @@ class ProfileUpdate(models.Model):
 
 
 class CreateBid(models.Model):
+    uni = models.ForeignKey(User, on_delete=models.CASCADE)
     bid_value = models.CharField(max_length=30)
     bid_time = models.CharField(max_length=30)
 
