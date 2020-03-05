@@ -100,3 +100,17 @@ class CreateBid(View):
             form = CreateBidFroms()
         context = {'form': form}
         return render(request, self.template_name, context)
+
+class ProjectDetailView(View):
+    tamplate = 'university/projectDetails.html'
+
+    @method_decorator(login_required)
+    def get(self, request, *args, **kwargs):
+        return render(request, self.tamplate)
+
+class ProjectMilestonesView(View):
+    tamplate = 'university/milestones.html'
+
+    @method_decorator(login_required)
+    def get(self, request, *args, **kwargs):
+        return render(request, self.tamplate)

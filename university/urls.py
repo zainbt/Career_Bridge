@@ -12,4 +12,7 @@ urlpatterns = [
     path('colabs/', ClobsView.as_view(), name='colabs'),
     path('profile/', ProfileView.as_view(), name='profile'),
     path('bid/', CreateBid.as_view(), name='bid'),
+    path('projectDetails/', ProjectDetailView.as_view(), name='projectdetails'),
+    path('milestones/', ProjectMilestonesView.as_view(), name='projectmilestones'),
+
 ]

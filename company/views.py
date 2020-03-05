@@ -3,12 +3,12 @@ from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views import View
 from accounts.models import User
-from .models import CreateProject
-from .forms import ProjectCreationForm
+from company.models import CreateProject
+from company.forms import ProjectCreationForm
 from university.models import CreateBid
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import viewsets
-from .serializers import UsersSerializer
+from company.serializers import UsersSerializer
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser

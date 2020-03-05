@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework import routers
-from .views import *
+from company.views import *
 
 router = routers.DefaultRouter()
 router.register(r'users', UserApi)
@@ -12,7 +12,7 @@ urlpatterns = [
     # path('dashboard/<int:pk>/', CompDetailView.as_view(), name='personal'),
     path('profile/', ProfileView.as_view(), name='profile'),
 
-    # new routes
+    #new routes
     path('collaboration/', Collaborations.as_view(), name='collaborations'),
     path('projects/', Projects.as_view(), name='projects'),
     path('universities/', Universities.as_view(), name='universities'),

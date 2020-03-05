@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+<style>
+    .row {
+    margin-right: -138px;
+    margin-left: -138px;
+}
+</style>
+   <link rel='stylesheet' id='wc-gateway-ppec-frontend-css' href='https://colorlib.com/wp/wp-content/plugins/woocommerce-gateway-paypal-express-checkout/assets/css/wc-gateway-ppec-frontend.css?ver=5.3.2' media='all' />
+    <link rel='stylesheet' id='parent-style-css' href='https://colorlib.com/wp/wp-content/themes/colorlib-v496/style.css?ver=5.3.2' media='all' />
+    <link rel='stylesheet' id='wpex-style-css' href='https://colorlib.com/wp/wp-content/themes/v3ct/style.css?ver=4.9.6' media='all' />
+    <link rel='stylesheet' id='wpex-visual-composer-css' href='https://colorlib.com/wp/wp-content/themes/colorlib-v496/assets/css/wpex-visual-composer.css?ver=4.9.6' media='all' />
+    <link rel='stylesheet' id='wpex-woocommerce-css' href='https://colorlib.com/wp/wp-content/themes/colorlib-v496/assets/css/wpex-woocommerce.css?ver=4.9.6' media='all' />
+    <link rel='stylesheet' id='wpex-bbpress-css' href='https://colorlib.com/wp/wp-content/themes/colorlib-v496/assets/css/wpex-bbpress.css?ver=4.9.6' media='all' />
+    <link rel='stylesheet' id='bpbbpst-bbpress-widget-css-css' href='https://colorlib.com/wp/wp-content/plugins/buddy-bbpress-support-topic/css/bpbbpst-bbpress-widget.css?ver=2.1.4' media='all' /><meta name="referrer" content="always" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.js"
+      integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+      crossorigin="anonymous">
+
+    </script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="milestones.css">
+    <style type="text/css">
+        .task{
+            color: white;
+            width: 100%;
+            background-color: #1b4b84;
+            padding: 18px;
+            margin: 6px 0;
+            overflow: hidden;
+        }
+        .task i{
+            float: right;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+    .comp .task{
+        background-color: rgba(27, 75, 132, .5) ;
+        color: #FFFFFF;
+    }
+    </style>
+
+<body class="search search-results wp-custom-logo theme-colorlib-v496 woocommerce-no-js wpex-theme wpex-responsive full-width-main-layout no-composer wpex-live-site content-right-sidebar has-sidebar has-topbar has-breadcrumbs sidebar-widget-icons hasnt-overlay-header smooth-fonts wpex-mobile-toggle-menu-icon_buttons has-mobile-menu wpb-js-composer js-comp-ver-6.0.5 vc_responsive">
+    <div class="wpex-site-overlay"></div>
+    <a href="#content" class="skip-to-content">skip to Main Content</a><span data-ls_id="#site_top"></span>
+    <div id="outer-wrap" class="clr">
+        <div id="wrap" class="clr">
+           <main id="main" class="site-main clr">
+                <div id="content-wrap" class="container clr">
+                    <div id="primary" class="content-area clr">
+                        <div id="content" class="site-content">
+                            <h2><u>Milestones</u></h2>
+                            <div class="milestone">
+                                <input type="text" class="textbox" placeholder="Add a milestone" style="width: 100%; border: none; border-bottom: 2px solid #000000; background: none; padding: 10px; font-size: 18px">
+                                <div class="notcomp">
+                                    <h3 style="margin: 10px 0">Not Completed</h3>
+                                </div>
+                                <div class="comp">
+                                    <h3>Completed</h3>
+                                    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+                                    <script type="text/javascript">
+                                        $(".textbox").on("keyup", function (e) {
+                                            {#13 means enter button is pressed#}
+                                            if (e.keyCode==13 && $(".textbox").val() !="")
+                                                {#alert("OK");#}
+                                            {
+                                                var task = $("<div class=\"task\"></div>").text($(".textbox").val());
+                                                var del = $("<i class='fa fa-trash'></i>").click(function () {
+                                                    var p = $(this).parent();
+                                                    p.fadeOut(function () {
+                                                        p.remove();
+                                                    });
+                                                });
+                                                var check = $("<i class='fa fa-check'></i>").click(function (){
+                                                    var p = $(this).parent();
+                                                    {#p.fadeOut;#}
+                                                    p.fadeOut(function () {
+                                                      $(".comp").append(p);
+                                                        p.fadeIn();
+                                                    });
+                                                    $(this).remove();
+                                                });
+
+                                                task.append(del, check);
+                                                $(".notcomp").append(task);
+                                                {# To clear the input #}
+                                                $(".textbox").val("")
+                                            }
+                                        });
+                                    </script>
+
+{#                                    <div class="task">#}
+{#                                        task#}
+{#                                        <i class="fa fa-trash"></i>#}
+{#                                    </div>#}
+{#                                    <div class="task">#}
+{#                                        task#}
+{#                                        <i class="fa fa-trash"></i>#}
+{#                                    </div>#}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script type="c9c3e3b28404fc1c9c662355-text/javascript" src="https://colorlib.com/wp/wp-content/themes/v3ct/lib/cookies.min.js"></script>
+    <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="c9c3e3b28404fc1c9c662355-|49" defer=""></script>
+</body>
+
+
+
+{% endblock %}
