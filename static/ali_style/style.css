@@ -106,10 +106,10 @@ img {
     font-family: 'OpenSansLight';
 }
 
-.article ul.nav li.dropdown:first-child a {
-    background-color: #1b4b84;
-    color: #fbfbfb;
-}
+/*.article ul.nav li.dropdown:first-child a {*/
+/*    background-color: #1b4b84;*/
+/*    color: #fbfbfb;*/
+/*}*/
 
 .article ul.nav li.dropdown a:before {
     font-family: 'FontAwesome';
