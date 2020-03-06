@@ -38,20 +38,13 @@
             <ul class="loginbar pull-right">
 
                 <li class=""><a href="{% url 'accounts:logout'%}">Logout</a></li>
-                <li class="topbar-devider"></li>
-                 <li class=""><a href="/">Settings</a></li>
+{#                <li class="topbar-devider"></li>#}
+{#                 <li class=""><a href="/">Settings</a></li>#}
                  <li class="topbar-devider"></li>
                 <li class="topbar-search">
-                    <i class="fa fa-search search-btn"></i>
-                    <div class="search">
-                        <div class="input-group">
-                            <input id="txtHeaderSearch" type="text" class="form-control" placeholder="Search" />
-                            <span class="input-group-btn">
-                                <button id="btnHeaderSearch" class="btn-u" type="button" onclick="fn_doSearch();">Go</button>
-                            </span>
-                        </div>
-
-                    </div>
+                    <a href="{% url 'accounts:logout'%}">
+                        <i class="fa fa-power-off"></i>
+                    </a>
                 </li>
             </ul>
             <!-- End Topbar Navigation -->
